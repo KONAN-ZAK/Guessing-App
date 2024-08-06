@@ -45,8 +45,10 @@ document.querySelector('.check').addEventListener('click', function () {
     document.querySelector('.number').style.width = '30rem';
 
     //adding the highScore
-    highScore = score;
-    document.querySelector('.highscore').textContent = highScore;
+    if (score > highScore) {
+      highScore = score;
+      document.querySelector('.highscore').textContent = highScore;
+    }
   }
 
   // option if input too high.
@@ -62,6 +64,7 @@ document.querySelector('.check').addEventListener('click', function () {
 });
 // Again button behaviour
 document.querySelector('.again').addEventListener('click', () => {
+  score = 20;
   document.querySelector('.score').textContent = 20;
   document.querySelector('.number').style.width = '15rem';
   document.querySelector('.message').textContent = 'Guess a Number!';
